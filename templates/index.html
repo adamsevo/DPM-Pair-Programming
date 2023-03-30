@@ -5,13 +5,13 @@
 <main>
   <form action="/add" method="POST">
     <p>
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" />
+      <label for="title" class="form-control">Title:</label>
+      <input class="form-control"type="text" id="title" name="title" />
     </p>
     <p>&nbsp;</p>
     <p>
-      <label for="author">Author:</label>
-      <input type="text" id="author" name="author" />
+      <label for="author" class="form-control">Author:</label>
+      <input type="text" class="form-control" id="author" name="author"/>
     </p>
     <p>&nbsp;</p>
     <p>
@@ -104,14 +104,14 @@
     
     
 
-    <p><input type="submit" id="submit" value="Add Book" /></p>
+    <p><input class="btn btn-primary" type="submit" id="submit" value="Add Book" /></p>
   </form>
 
   <br /><br />
   {% if friends %}
   <h3>List of Books</h3>
   <hr />
-  <table border="1">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Title</th>
