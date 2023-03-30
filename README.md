@@ -8,6 +8,10 @@ I completed this project as part of Digital Product Management class. To learn a
 
 ---  
 
+![Library application homepage](library.jpg "Library homepage")
+
+
+
 ## Instruction to run the application  
 
 1. Clone this repository to local computer
