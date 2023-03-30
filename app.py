@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, flash
 
 app = Flask(__name__)
 
@@ -11,6 +11,10 @@ friends_dict = [
      "acquire": "purchase"}
 ]
 
+# Handling error 404 and displaying relevant web page
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template("404.html"), 404
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -63,6 +67,7 @@ def add():
             friend_dict
         )  # append this dictionary entry to the larger friends dictionary
         print(friends_dict)
+        flash('Record successfully added.')
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))

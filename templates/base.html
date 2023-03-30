@@ -30,6 +30,11 @@
   </nav>
 
   <body>
+    <div>
+      {% for message in get_flashed_messages() %}
+      {{ message }}
+      {% endfor %}
+    </div>
     <div class="container">
       {% block body %}
       {% endblock %}
