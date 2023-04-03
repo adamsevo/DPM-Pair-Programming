@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "aj-dpm"
 
 friends_dict = [
     {"title": "The Hobbit", 
@@ -15,6 +16,11 @@ friends_dict = [
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template("404.html"), 404
+
+# Handling error 500 and displaying relevant web page
+@app.errorhandler(500)
+def not_found_error(error):
+    return render_template("500.html"), 500
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -41,7 +47,7 @@ def add():
         author = form["author"]
         pages = form["pages"]
         type = form["type"]
-        details = form.getlist("details")  # this is a PYthon list
+        details = form.getlist("details")  # this is a Python list
         acquire = form["acquire"]
 
         print(title)
@@ -67,7 +73,9 @@ def add():
             friend_dict
         )  # append this dictionary entry to the larger friends dictionary
         print(friends_dict)
-        flash('Record successfully added.')
+
+        flash('The book ' + title + ' has been added. ', 'success')
+
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
