@@ -30,7 +30,7 @@ def index():
 
 @app.route('/about', methods=["GET","POST"])
 def about():
-    return render_template(
+    return rexder_template(
         "about.html", pageTitle="About", friends=friends_dict
     )
 
@@ -82,4 +82,4 @@ def add():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
